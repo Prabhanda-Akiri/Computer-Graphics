@@ -60,7 +60,7 @@ glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 glutInitWindowSize(640, 500);
 glutInitWindowPosition(100,100);
 glutCreateWindow("Rotation");
-
+    
 intiopenGL();
 findCoordinates1( -180 * pi/180);
 findCoordinates2( -180 * pi/180);
