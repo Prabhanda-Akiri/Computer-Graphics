@@ -9,7 +9,7 @@ GLfloat X1,Y1,X2,Y2;
 GLfloat xc1,xc2,yc1,yc2;
 GLint choice=1;
 
-void lian_barsky()
+void clip_line()
 {
     float dx=X2-X1;
     float dy=Y2-Y1;
@@ -89,7 +89,7 @@ void lian_barsky()
     }
 }
 
-void lineF()
+void lian_barsky()
 {
 
     //printf("\nXmin:  %f\nXmax:  %f\nYmin:  %f\nYmax:  %f\n",Xmin,Xmax,Ymin,Ymax);
@@ -108,7 +108,6 @@ void lineF()
 
     if(choice==1)
     {
-        lian_barsky();
         glBegin(GL_LINES);
         glColor3f(1,0,0);
         glVertex3f(X1,Y1,0);
@@ -119,7 +118,7 @@ void lineF()
 
     else
     {
-        lian_barsky();
+        clip_line();
         glBegin(GL_LINES);
         glColor3f(1,0,0);
         glVertex3f(xc1,yc1,0);
@@ -168,11 +167,11 @@ int main(int argc, char **argv)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowSize(500, 500);
     glutInitWindowPosition(100, 100);
-    glutCreateWindow("DDA_Line");
+    glutCreateWindow("Lian_Barsky");
     init();
     glutKeyboardFunc(Mykeyboardfunc);
-    glutDisplayFunc(lineF);
-    glutIdleFunc(lineF);
+    glutDisplayFunc(lian_barsky);
+    glutIdleFunc(lian_barsky);
     glutReshapeFunc(reshape);
     glutMainLoop();
     return 0;
